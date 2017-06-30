@@ -1,0 +1,68 @@
+<md-tab-group>
+  <md-tab label="Recommended for You" >
+    <md-grid-list  cols="3">
+      <md-grid-tile *ngFor="let book of recommendedBooks" >
+          <md-card class="book-card">
+            <md-card-title>{{book.title}}</md-card-title>
+            <md-card-subtitle>By {{book.author}}</md-card-subtitle>
+              <a href="../book">
+                <img class="book-card-image"  md-card-image src={{book.src}}>
+              </a>
+            <md-card-content >
+              <p>{{book.price}}</p>
+            </md-card-content>
+            <md-card-actions>
+              <button md-button [routerLink]="['/book']">See More</button>
+              <button md-button (click)="alert()">
+                <md-icon>add_shopping_cart</md-icon>
+                Add to Cart
+              </button>
+            </md-card-actions>
+          </md-card>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-tab>
+  <md-tab label="Latest Releases" >
+    <md-grid-list  cols="3">
+      <md-grid-tile  *ngFor="let book of latestBooks">
+        <md-card class="book-card">
+          <md-card-title>{{book.title}}</md-card-title>
+          <md-card-subtitle>By {{book.author}}</md-card-subtitle>
+          <img md-card-image class="book-card-image" src={{book.src}}>
+          <md-card-content class="book-card-price">
+            <p>{{book.price}}</p>
+          </md-card-content>
+          <md-card-actions>
+            <button md-button [routerLink]="['/book']">See More</button>
+            <button md-button (click)="alert()">
+              <md-icon>add_shopping_cart</md-icon>
+              Add to Cart
+            </button>
+          </md-card-actions>
+        </md-card>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-tab>
+  <md-tab label="Bestsellers" >
+    <md-grid-list  cols="3">
+      <md-grid-tile *ngFor="let book of bestsellingBooks">
+        <md-card class="book-card">
+          <md-card-title>{{book.title}}</md-card-title>
+          <md-card-subtitle>By {{book.author}}</md-card-subtitle>
+          <img md-card-image class="book-card-image" src={{book.src}}>
+          <md-card-content class="book-card-price">
+            <p>{{book.price}}</p>
+          </md-card-content>
+          <md-card-actions>
+            <button md-button [routerLink]="['/book']">See More</button>
+            <button md-button (click)="alert()">
+              <md-icon>add_shopping_cart</md-icon>
+              Add to Cart
+            </button>
+          </md-card-actions>
+        </md-card>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-tab>
+</md-tab-group>
+

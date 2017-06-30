@@ -1,0 +1,40 @@
+.book-page-image {
+  float: left;
+  margin: 0px;
+}
+
+.book-page-content {
+  margin-top: 10px;
+}
+
+.book-page-description {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-card-image:first-child{
+  margin-top: 0px;
+}
+
+.book-card-price {
+  margin: 20px 0px;
+}
+
+.mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button{
+  padding: 0px 3px;
+}
+
+.book-page-recommended-books {
+  margin-top: 10px;
+}
+
+.book-page-recommended-books-image {
+  width: 100px;
+}
+
+.book-page-recommended-books-price {
+  padding:12px 0px ;
+}
+
+.book-page-recommended-books-title {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,33 @@
+<h1 class="search-page-title">Search Results</h1>
+<div *ngFor="let book of books" style="margin-top: 10px">
+  <md-card >
+    <md-card-title>
+      {{book.title}}
+    </md-card-title>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="start center" class="content" >
+        <div class="blocks" fxFlex="5%" >
+          <a href="../book">
+            <img class="search-result-card-image" md-card-image src={{book.src}}>
+          </a>
+        </div>
+        <span class="example-spacer"></span>
+        <div class="blocks" fxFlex="90%">
+          <div class="search-result-card-description">
+            {{book.description}}
+          </div>
+          <div class="search-result-card-price">
+            {{book.price}}
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" class="content" >
+            <button md-button [routerLink]="['/book']">See More</button>
+            <button md-button (click)="alert()">
+              <md-icon>add_shopping_cart</md-icon>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </md-card>
+</div>

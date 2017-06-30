@@ -1,0 +1,40 @@
+.title {
+  padding-left: 0.3em;
+}
+
+.search-box {
+  width: 380px;
+  margin-left: 10px;
+}
+
+.search-by-dropdown {
+  margin-left: 15px;
+}
+
+.mat-input-placeholder{
+  color: #fff;
+}
+
+.mat-input-underline{
+  background-color: #ffffff;
+}
+
+.mat-select-placeholder{
+  color: #ffffff;
+}
+
+.mat-select-arrow{
+  color: #ffffff;
+}
+
+.mat-select-underline{
+  background-color: #ffffff;
+}
+
+.mat-select-value-text{
+  color: white;
+}
+
+.search-box-input {
+  color: white;
+}

@@ -1,0 +1,64 @@
+<div class="container">
+    <div fxLayout="row" fxLayoutAlign="start start" class="content" >
+      <div class="blocks book-page-content" fxFlex="74%" >
+        <md-card>
+          <md-card-title>
+            {{bestsellingBooks[2].title}}
+          </md-card-title>
+          <div class="container">
+            <div fxLayout="row" fxLayoutAlign="start center" class="content" >
+              <div class="blocks" fxFlex="13%">
+                <img class="book-page-image" md-card-image src={{bestsellingBooks[2].src}}>
+              </div>
+              <span class="example-spacer"></span>
+              <div class="blocks" fxFlex="80%">
+                <div class="book-page-description">
+                  {{bestsellingBooks[2].description}}
+                </div>
+                <div class="book-card-price">
+                  {{bestsellingBooks[2].price}}
+                </div>
+                <button md-button (click)="alert()">
+                  <md-icon>add_shopping_cart</md-icon>
+                  Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </md-card>
+      </div>
+      <span class="example-spacer"></span>
+      <div class="blocks book-page-recommended-books" fxFlex="25%">
+        <md-card>
+          <md-card-title>
+            Recommended for You
+          </md-card-title>
+          <ng-container *ngFor="let book of recommendedBooks">
+            <h3 class="book-page-recommended-books-title">
+                {{book.title}}
+            </h3>
+            <div class="container">
+              <div fxLayout="row" fxLayoutAlign="start center" class="content" >
+                <div class="blocks" fxFlex="15%" >
+                  <a href="../book">
+                    <img class="book-page-recommended-books-image" src={{book.src}}>
+                  </a>
+                </div>
+                <span class="example-spacer"></span>
+                <div class="container">
+                  <div fxLayout="column" fxLayoutAlign="start center" class="content" >
+                    <div class="blocks book-page-recommended-books-price">
+                      {{book.price}}
+                    </div>
+                    <button md-button class="blocks" [routerLink]="['/book']">See More</button>
+                    <button md-button class="blocks" (click)="alert()">
+                      <md-icon>add_shopping_cart</md-icon>
+                      Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </md-card>
+      </div>
+    </div>
+</div>

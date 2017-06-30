@@ -1,0 +1,23 @@
+.search-page-title {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-left: 10px;
+}
+
+.search-result-card-image {
+  float: left;
+  margin: 0px;
+  padding: 0px;
+}
+
+.search-result-card-description {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-card-image:first-child{
+  margin-top: 0px;
+}
+
+.search-result-card-price {
+  margin: 20px 0px;
+}
+

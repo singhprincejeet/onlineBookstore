@@ -1,0 +1,101 @@
+<div class="container checkout-form">
+  <div fxLayout="row" fxLayoutAlign="space-around start" class="content" >
+    <span class="example-spacer"></span>
+    <div class="blocks" fxFlex="40%" >
+      <md-card class="demo-card demo-basic">
+        <md-toolbar>Checkout Form</md-toolbar>
+        <md-card-content>
+        <form (ngSubmit)="runThis()" #checkoutForm="ngForm" >
+            <p>
+              <md-input-container>
+                <input mdInput placeholder="First Name" [(ngModel)]="firstName" required name="firstName">
+                <md-error>This field is required</md-error>
+              </md-input-container>
+              <md-input-container>
+                <input mdInput placeholder="Last Name" [(ngModel)]="lastName" required name="lastName">
+                <md-error>This field is required</md-error>
+              </md-input-container>
+            </p>
+            <p>
+              <md-input-container>
+                <input mdInput placeholder="email" [formControl]="emailFormControl" required>
+                <md-error *ngIf="emailFormControl.hasError('required')">
+                  This field is required
+                </md-error>
+                <md-error *ngIf="emailFormControl.hasError('pattern')">
+                  Please enter a valid email address
+                </md-error>
+              </md-input-container>
+            </p>
+            <p>
+              <md-input-container>
+                <input mdInput required placeholder="Address" [(ngModel)]="address1" name="address1"/>
+                <md-error>This field is required</md-error>
+              </md-input-container>
+              <md-input-container >
+                <input mdInput placeholder="Address 2"/>
+              </md-input-container>
+            </p>
+            <table cellspacing="0"><tr>
+              <td><md-input-container >
+                <input mdInput required placeholder="City" [(ngModel)]="city" name="city">
+                <md-error>This field is required</md-error>
+              </md-input-container></td>
+              <td><md-input-container >
+                <input mdInput required placeholder="State" [(ngModel)]="state" name="state">
+                <md-error>This field is required</md-error>
+              </md-input-container></td>
+              <td><md-input-container >
+                <input mdInput required placeholder="Postal Code" [(ngModel)]="postalCode" name="postalCode">
+                <md-error>This field is required</md-error>
+              </md-input-container></td>
+            </tr></table>
+            <P>
+              <md-input-container>
+                <input mdInput placeholder="Credit Card Number"
+                       [formControl]="creditCardFormControl" required
+                       [(ngModel)]="creditCardNumber" name="creditCardNumber">
+                <md-error *ngIf="creditCardFormControl.hasError('required')">
+                  This field is required
+                </md-error>
+                <md-error *ngIf="creditCardFormControl.hasError('minlength')
+                              && !creditCardFormControl.hasError('pattern')">
+                  Credit Card number should be 16 digits long
+                </md-error>
+                <md-error *ngIf="creditCardFormControl.hasError('maxlength')
+                              && !creditCardFormControl.hasError('pattern')">
+                  Credit Card number should be 16 digits long
+                </md-error>
+                <md-error *ngIf="creditCardFormControl.hasError('pattern')">
+                  Only positive numbers are accepted
+                </md-error>
+              </md-input-container>
+              <md-input-container>
+                <input mdInput placeholder="CCV" type="password"
+                       [formControl]="ccvFormControl" required
+                       [(ngModel)]="ccvNumber" name="ccvNumber">
+                <md-error *ngIf="ccvFormControl.hasError('required')">
+                  This field is required
+                </md-error>
+                <md-error *ngIf="ccvFormControl.hasError('minlength')
+                              && !ccvFormControl.hasError('pattern')">
+                  CCV number should be 3 digits long
+                </md-error>
+                <md-error *ngIf="ccvFormControl.hasError('maxlength')
+                              && !ccvFormControl.hasError('pattern')">
+                  CCV number should be 3 digits long
+                </md-error>
+                <md-error *ngIf="ccvFormControl.hasError('pattern')">
+                  Only positive numbers are accepted
+                </md-error>
+              </md-input-container>
+            </P>
+            <button [disabled]="!checkoutForm.form.valid" type="submit" md-raised-button>Submit</button>
+          </form>
+        </md-card-content>
+      </md-card>
+    </div>
+    <span class="example-spacer"></span>
+  </div>
+</div>
+

@@ -1,0 +1,32 @@
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="start center" class="content" >
+    <div class="blocks" fxFlex="15%" >
+      <h1 class="category-page-title">Fiction</h1>
+    </div>
+    <span class="example-spacer"></span>
+    <div class="blocks category-books-sort">
+      <button md-button>Sort By Popularity</button>
+    </div>
+  </div>
+</div>
+<md-grid-list  cols="3">
+  <md-grid-tile *ngFor="let book of books" >
+    <md-card class="book-card">
+      <md-card-title *ngIf="book.label=='latest'">{{book.title}} [Latest Release]</md-card-title>
+      <md-card-title *ngIf="book.label!='latest'">{{book.title}}</md-card-title>
+      <md-card-subtitle>By {{book.author}}</md-card-subtitle>
+      <a href="../book">
+        <img class="book-card-image" md-card-image src={{book.src}}>
+      </a>
+      <md-card-content >
+        <p>{{book.price}}</p>
+      </md-card-content>
+      <md-card-actions>
+        <button md-button [routerLink]="['/book']">See More</button>
+        <button md-button (click)="alert()">
+          <md-icon>add_shopping_cart</md-icon>
+          Add to Cart</button>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+</md-grid-list>

@@ -1,0 +1,82 @@
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="start start" class="content" >
+    <div class="blocks shopping-cart-page-content" fxFlex="74%" >
+      <md-card class="container">
+        <div fxLayout="row" fxLayoutAlign="start center" class="content" >
+          <span class="example-spacer"></span>
+          <p>Total: CDN$ 38.86</p>
+          <button md-button class="blocks" [routerLink]="['/checkout']">Checkout</button>
+        </div>
+      </md-card>
+      <md-card *ngFor="let book of books">
+        <div class="container">
+          <div fxLayout="row" fxLayoutAlign="start center" class="content" >
+            <div class="blocks" fxFlex="4%">
+              <a href="../book">
+                <img class="shopping-cart-page-image" md-card-image src={{book.src}}>
+              </a>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="blocks" fxFlex="80%">
+              <md-card-title>
+                {{book.title}}
+              </md-card-title>
+              <div class="shopping-cart-page-description">
+                {{book.description}}
+              </div>
+              <div class="shopping-cart-page-price">
+                {{book.price}}
+              </div>
+              <div>
+                Quantity:
+                  <input type="number" pattern="[0-9]*" value="1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </md-card>
+      <md-card class="container">
+        <div fxLayout="row" fxLayoutAlign="start center" class="content" >
+          <span class="example-spacer"></span>
+          <p>Total: CDN$ 38.86</p>
+          <button md-button class="blocks" [routerLink]="['/checkout']">Checkout</button>
+        </div>
+      </md-card>
+    </div>
+    <span class="example-spacer"></span>
+    <div class="blocks shopping-cart-page-recommended-books" fxFlex="25%">
+      <md-card>
+        <md-card-title>
+          Recommended for You
+        </md-card-title>
+        <ng-container *ngFor="let recommendedBook of recommendedBooks">
+          <h3 class="shopping-cart-page-recommended-books-title">
+            {{recommendedBook.title}}
+          </h3>
+          <div class="container">
+            <div fxLayout="row" fxLayoutAlign="start center" class="content" >
+              <div class="blocks" fxFlex="15%" >
+                <a href="../book">
+                  <img class="shopping-cart-page-recommended-books-image" src="{{recommendedBook.src}}">
+                </a>
+              </div>
+              <span class="example-spacer"></span>
+              <div class="container">
+                <div fxLayout="column" fxLayoutAlign="start center" class="content" >
+                  <div class="blocks shopping-cart-page-recommended-books-price">
+                    {{recommendedBook.price}}
+                  </div>
+                  <button md-button class="blocks" [routerLink]="['/book']">See More</button>
+                  <button md-button (click)="alert()">
+                    <md-icon>add_shopping_cart</md-icon>
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </md-card>
+    </div>
+  </div>
+</div>

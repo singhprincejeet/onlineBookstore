@@ -1,0 +1,40 @@
+.shopping-cart-page-image {
+  float: left;
+  margin: 0px;
+}
+
+.shopping-cart-page-content {
+  margin-top: 10px;
+}
+
+.shopping-cart-page-description {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-card-image:first-child{
+  margin-top: 0px;
+}
+
+.shopping-cart-page-price {
+  margin: 20px 0px;
+}
+
+.mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button{
+  padding: 0px 3px;
+}
+
+.shopping-cart-page-recommended-books {
+  margin-top: 10px;
+}
+
+.shopping-cart-page-recommended-books-image {
+  width: 100px;
+}
+
+.shopping-cart-page-recommended-books-price {
+  padding:12px 0px ;
+}
+
+.shopping-cart-page-recommended-books-title {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
