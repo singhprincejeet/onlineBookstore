@@ -22,5 +22,5 @@ const appRoutes: Routes = [
   {path: 'checkout', component: CheckoutComponent}
 ];
 
-export const AppRoutes:ModuleWithProviders = RouterModule.forRoot(appRoutes)
+export const AppRoutes:ModuleWithProviders = RouterModule.forRoot(appRoutes);
 

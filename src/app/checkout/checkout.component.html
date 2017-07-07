@@ -5,31 +5,31 @@
       <md-card class="demo-card demo-basic">
         <md-toolbar>Checkout Form</md-toolbar>
         <md-card-content>
-        <form (ngSubmit)="runThis()" #checkoutForm="ngForm" >
+          <form (ngSubmit)="runThis()" [formGroup]="checkoutForm" >
             <p>
               <md-input-container>
-                <input mdInput placeholder="First Name" [(ngModel)]="firstName" required name="firstName">
+                <input mdInput placeholder="First Name" type="text" [formControl]="checkoutForm.controls['firstName']">
                 <md-error>This field is required</md-error>
               </md-input-container>
               <md-input-container>
-                <input mdInput placeholder="Last Name" [(ngModel)]="lastName" required name="lastName">
+                <input mdInput placeholder="Last Name" type="text" [formControl]="checkoutForm.controls['lastName']">
                 <md-error>This field is required</md-error>
               </md-input-container>
             </p>
             <p>
               <md-input-container>
-                <input mdInput placeholder="email" [formControl]="emailFormControl" required>
-                <md-error *ngIf="emailFormControl.hasError('required')">
-                  This field is required
-                </md-error>
-                <md-error *ngIf="emailFormControl.hasError('pattern')">
-                  Please enter a valid email address
-                </md-error>
+                <input mdInput placeholder="email" type="email" [formControl]="checkoutForm.controls['email']">
+                <!--<md-error *ngIf="emailFormControl.hasError('required')">-->
+                <!--This field is required-->
+                <!--</md-error>-->
+                <!--<md-error *ngIf="emailFormControl.hasError('pattern')">-->
+                <!--Please enter a valid email address-->
+                <!--</md-error>-->
               </md-input-container>
             </p>
             <p>
               <md-input-container>
-                <input mdInput required placeholder="Address" [(ngModel)]="address1" name="address1"/>
+                <input mdInput required placeholder="Address" type="text" [formControl]="checkoutForm.controls['address1']">
                 <md-error>This field is required</md-error>
               </md-input-container>
               <md-input-container >
@@ -38,59 +38,57 @@
             </p>
             <table cellspacing="0"><tr>
               <td><md-input-container >
-                <input mdInput required placeholder="City" [(ngModel)]="city" name="city">
+                <input mdInput required placeholder="City" type="text" [formControl]="checkoutForm.controls['city']">
                 <md-error>This field is required</md-error>
               </md-input-container></td>
               <td><md-input-container >
-                <input mdInput required placeholder="State" [(ngModel)]="state" name="state">
+                <input mdInput required placeholder="State" type="text" [formControl]="checkoutForm.controls['state']">
                 <md-error>This field is required</md-error>
               </md-input-container></td>
               <td><md-input-container >
-                <input mdInput required placeholder="Postal Code" [(ngModel)]="postalCode" name="postalCode">
+                <input mdInput required placeholder="Postal Code" type="text"
+                       [formControl]="checkoutForm.controls['postalCode']">
                 <md-error>This field is required</md-error>
               </md-input-container></td>
             </tr></table>
             <P>
               <md-input-container>
                 <input mdInput placeholder="Credit Card Number"
-                       [formControl]="creditCardFormControl" required
-                       [(ngModel)]="creditCardNumber" name="creditCardNumber">
-                <md-error *ngIf="creditCardFormControl.hasError('required')">
+                       [formControl]="checkoutForm.controls['creditCardNumber']">
+                <md-error *ngIf="checkoutForm.controls['creditCardNumber'].hasError('required')">
                   This field is required
                 </md-error>
-                <md-error *ngIf="creditCardFormControl.hasError('minlength')
-                              && !creditCardFormControl.hasError('pattern')">
+                <md-error *ngIf="checkoutForm.controls['creditCardNumber'].hasError('minlength')
+                && !checkoutForm.controls['creditCardNumber'].hasError('pattern')">
                   Credit Card number should be 16 digits long
                 </md-error>
-                <md-error *ngIf="creditCardFormControl.hasError('maxlength')
-                              && !creditCardFormControl.hasError('pattern')">
-                  Credit Card number should be 16 digits long
+                <md-error *ngIf="checkoutForm.controls['creditCardNumber'].hasError('maxlength')
+                && !checkoutForm.controls['creditCardNumber'].hasError('pattern')">
+                Credit Card number should be 16 digits long
                 </md-error>
-                <md-error *ngIf="creditCardFormControl.hasError('pattern')">
-                  Only positive numbers are accepted
+                <md-error *ngIf="checkoutForm.controls['creditCardNumber'].hasError('pattern')">
+                Only positive numbers are accepted
                 </md-error>
               </md-input-container>
               <md-input-container>
-                <input mdInput placeholder="CCV" type="password"
-                       [formControl]="ccvFormControl" required
-                       [(ngModel)]="ccvNumber" name="ccvNumber">
-                <md-error *ngIf="ccvFormControl.hasError('required')">
+                <input mdInput placeholder="CCV" type="password" [formControl]="checkoutForm.controls['ccvNumber']">
+                <md-error *ngIf="checkoutForm.controls['ccvNumber'].hasError('required')">
                   This field is required
                 </md-error>
-                <md-error *ngIf="ccvFormControl.hasError('minlength')
-                              && !ccvFormControl.hasError('pattern')">
+                <md-error *ngIf="checkoutForm.controls['ccvNumber'].hasError('minlength') &&
+                   !checkoutForm.controls['ccvNumber'].hasError('pattern')">
                   CCV number should be 3 digits long
                 </md-error>
-                <md-error *ngIf="ccvFormControl.hasError('maxlength')
-                              && !ccvFormControl.hasError('pattern')">
-                  CCV number should be 3 digits long
+                <md-error *ngIf="checkoutForm.controls['ccvNumber'].hasError('maxlength')&&
+                   !checkoutForm.controls['ccvNumber'].hasError('pattern')">
+                CCV number should be 3 digits long
                 </md-error>
-                <md-error *ngIf="ccvFormControl.hasError('pattern')">
-                  Only positive numbers are accepted
+                <md-error *ngIf="checkoutForm.controls['ccvNumber'].hasError('pattern') ">
+                Only positive numbers are accepted
                 </md-error>
               </md-input-container>
             </P>
-            <button [disabled]="!checkoutForm.form.valid" type="submit" md-raised-button>Submit</button>
+            <button [disabled]="!checkoutForm.valid" type="submit" md-raised-button>Submit</button>
           </form>
         </md-card-content>
       </md-card>
